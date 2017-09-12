@@ -76,12 +76,6 @@ for t = tstart+1 : T
     KernelMatrixInv{1} = chol2invchol(KernelMatrix);
 
     all_cat = unique(z);
-    if strcmp(options.bo_method, 'Add-MES-R')
-        % compute the max-values maxes of size nZ x nK
-        subnFeatures = ceil(options.nFeatures/length(all_cat));
-        maxes = add_sampleMaximumValues(nK, xx, yy, hyp.sigma0, ...
-            hyp.sigma, hyp.l, xmin, xmax, subnFeatures, z, all_cat);
-    end
     xnext = zeros(1, size(xx,2));
     % Start optimization group by group
     for i = 1:length(all_cat)
