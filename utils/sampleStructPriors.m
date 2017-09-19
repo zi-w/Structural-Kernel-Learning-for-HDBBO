@@ -65,7 +65,7 @@ N_gibbs = 10;
 gibbs_iter = floor(N_gibbs/2);
 % Limit the number of dimensions in each group because BO cannot do well in
 % high dimensions.
-dim_limit = 5;
+dim_limit = 3;
 
 % You may want to set maxNdata to be small to speed up this function.
 maxNdata = 750;
