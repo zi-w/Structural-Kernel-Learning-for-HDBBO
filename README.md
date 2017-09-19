@@ -17,9 +17,19 @@ mex chol2invchol.c -lgsl -lblas
 To run Box2D related code in test-functions/robot-pushing/, please install [Pybox2d](https://github.com/pybox2d/pybox2d).
 
 ## Example
-example_addgp.m is a simple example using Bayesian optimization to maximize a high-dimensional black-box function. Please see the comments in the code for more details about the usage.
+example_addgp.m is a simple example using Bayesian Optimization (BO) to maximize a high-dimensional black-box function. Please see the comments in the code for more details about the usage.
 
-add_gpopt.m is the function for Bayesian optimization with additive Gaussian processes for high dimensional problems.
+add_gpopt.m is the function for BO with additive Gaussian processes for high dimensional problems.
+
+example_batch_addgp.m is an example using *Batch* Bayesian Optimization (BBO) to maximize a high-dimensional black-box function. Please see the comments in the code for more details about the usage. Different methods could be used by choosing the value of `bo_method` from 
+
+* `batch_rand`: Each point for exploration is chosen uniformly randomly
+* `batch_ucb_dpp_ori`: All acquisition functions are UCB. Exploration is done via DPP with posterior covariance kernels for each group. Combination is done uniformly randomly.
+* `batch_ucb_pe_ori`: All acquisition functions are UCB. Exploration is done via PE with posterior covariance kernels for each group. Combination is done uniformly randomly.
+* `batch_ucb_dpp_fnc`: All acquisition functions are UCB. Exploration is done via DPP with posterior covariance kernels for each group. Combination is done by maximizing the quality function, which is UCB in our case.
+* `batch_ucb_pe_fnc`: All acquisition functions are UCB. Exploration is done via PE with posterior covariance kernels for each group. Combination is done by maximizing the quality function, which is UCB in our case.
+
+batch_add_gpopt.m is the function for BBO with additive Gaussian processes for high dimensional problems.
 
 ## Example functionals for optimization
 In test_functions/, we provide some functionals one can use to test Bayesian optimization algorithms. 
