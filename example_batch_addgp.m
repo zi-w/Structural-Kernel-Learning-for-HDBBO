@@ -1,7 +1,7 @@
 % Copyright (c) 2017 Zi Wang, Chengtao Li
 clear all; clc;
 % add necessary paths
-deploy;
+deploy_batch;
 
 % Define function
 dx = 20;
